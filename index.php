@@ -9,7 +9,12 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
 
-    <body>
+    <body class="normal">
+        <div id="controls">
+            <div id="control-christmas">christmas</div>
+            <div id="control-working">working</div>
+            <div id="control-fromside">fromside</div>
+        </div>
 
 	<?php include("charly.php"); ?>
 

@@ -2,6 +2,7 @@ Array.prototype.sample = function(){
     return this[Math.floor(Math.random()*this.length)];
 }
 
+
 /**
  * Add a class to DOM element.
  * Remove the class after <lifetime> ms.
@@ -24,10 +25,6 @@ const head = document.getElementById('head');
 // const eyeClosedRight = document.getElementById('eye_closed_right');
 
 const blink = () => {
-    // classSheduler(eyeLeft, 'blink-off', 100);
-    // classSheduler(eyeRight, 'blink-off', 100);
-    // classSheduler(eyeClosedLeft, 'blink-on', 100);
-    // classSheduler(eyeClosedRight, 'blink-on', 100);
     classSheduler(head, 'blink', 100);
 }
 
@@ -47,4 +44,39 @@ const animationSheduler = () => {
         pauseTime );
 }
 
-animationSheduler();
+// animationSheduler();
+
+
+
+
+/*
+    =============================================
+        GENERAL: STUFF TO DO WHEN DOM'S READY
+    =============================================
+*/
+window.addEventListener("DOMContentLoaded", (e) => {
+    console.log("DOM entièrement chargé et analysé");
+
+    if (document.body.classList.contains('normal')) {
+        animationSheduler();
+    }
+    
+    document.addEventListener("click", function(event) {
+        if (event.target.id == 'control-christmas') {
+            document.body.classList.remove('working', 'from-side');
+            document.body.classList.add('christmas');
+            console.log('Christmas!');
+        } else if (event.target.id == 'control-working') {
+            document.body.classList.remove('christmas', 'from-side');
+            document.body.classList.add('working');
+            console.log('Working!');
+        } else if (event.target.id == 'control-fromside') {
+            document.body.classList.remove('christmas', 'working');
+            document.body.classList.add('from-side');
+            console.log('From side!');
+        }
+    });
+    
+});
+
+

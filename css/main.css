@@ -1,28 +1,91 @@
+/*
+    
+    CHARLY'S PARTS
+    ==============
+
+  + Charly
+    - head
+    -- skull
+    -- ear_left
+    -- ear_right
+    -- eye_right
+    -- eye_closed_right
+    -- eye_left
+    -- eye_closed_left
+    -- shine
+    -- hat
+    -- glasses
+    -- headphones
+
+    - body
+    -- jacket-color
+    -- jacket-side-color
+    -- arm
+    -- arm-cache
+    -- arm-color
+
+    - desk
+*/
+
+/* 
+    =============
+    UI & Controls
+    =============
+*/
+#controls {
+    display: flex;
+}
+#controls div {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+#control-christmas {
+    background: #d00000;
+}
+#control-working {
+    /* background: #385F71; */
+    background: #019390;
+}
+#control-fromside {
+    /* background: #385F71; */
+    background: #333;
+}
 body {
-    /* background: #AAA; */
     background: radial-gradient(#EEE, #999);
     height: 100vh;
 }
+
+
+
+/* 
+    ======
+    Charly
+    ======
+*/
+
 
 #Charly {
     width: 20vw;
     height: auto;
     margin: 4em auto;
     display: block;
+    transform-box: fill-box;
+    transform-origin: bottom;
 }
+
+
+
 
 #eye_left, #eye_right {
-    display: block;
+    opacity: 1;
 }
 #eye_closed_left, #eye_closed_right {
-    display: none;
+    opacity: 0;
 }
 
 
-
-
-
-
+/* BODY */
 @keyframes breathe {
     0% { transform: scaleY(1) rotateY(0deg); }
     33.33% { transform: scaleY(1.02) rotateY(-1deg); }
@@ -36,6 +99,9 @@ body {
     animation: breathe 12s infinite;
 }
 
+
+
+/* HEAD */
 @keyframes head-move {
     0% { transform: rotateZ(0deg); }
     60% { transform: rotateZ(3deg); }
@@ -69,7 +135,7 @@ body {
     animation: ear-move-r 5s infinite;
 }
 
-@keyframes blink-on {
+/* @keyframes blink-on {
     0% { display: none; }
     25% { display: block; }
     75% { display: none; }
@@ -81,19 +147,114 @@ body {
     25% { display: block; }
     75% { display: none; }
     100% { display: none; }
-}
+} */
 
 
 #head.blink #eye_left,
 #head.blink #eye_right {
-    display: none;
+    opacity: 0;
 }
 
 #head.blink #eye_closed_left,
 #head.blink #eye_closed_right {
-    display: block;
+    opacity: 1;
 }
 
-body.green #jacket {
-    fill: green;
+@keyframes teeth-shine {
+    0% { opacity: 0; transform: scale(0) rotateZ(0deg); }
+    45% { opacity: 1; transform: scale(3) rotateZ(720deg); }
+    55% { opacity: 1; transform: scale(3) rotateZ(720deg); }
+    100% { opacity: 0; transform: scale(10) rotateZ(0deg); }
+    /* 0% { opacity: 0; transform: translateX(0); }
+    100% { opacity: 1; transform: translateX(300px); } */
+}
+
+#shine {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    /* animation: teeth-shine 2s infinite; */
+}
+
+
+/* 
+    ===========================================
+    Change Jacket color according to body class
+    ===========================================
+*/
+
+#hat,
+#arm,
+#arm-cache,
+#glasses,
+#headphones {
+    opacity: 0;
+}
+
+/* Christmas */
+body.christmas #hat,
+body.christmas #glasses {
+    opacity: 1;
+}
+body.christmas #glasses-color,
+body.christmas #jacket-color,
+body.christmas #jacket-side-color {
+    fill: #d00000;
+}
+
+/* working */
+body.working #glasses,
+body.working #headphones {
+    opacity: 1;
+}
+body.working #glasses-color,
+body.working #jacket-color {
+    /* fill: #385F71; */
+    fill: #019390;
+}
+
+/* From side */
+@keyframes from-side {
+    0% { transform: scaleY(1) rotateZ(0deg); position: static; }
+    5% { transform: scaleY(0.9) translateY(0) rotateZ(0deg); position: static; }
+    20% { transform: scaleY(1.2) translateY(-100vh) rotateZ(0deg); position: static; }
+    40% { transform: scaleY(1.2) translateY(-100vh) rotateZ(0deg); position: fixed; right: -20%; }
+    49% { transform: scaleY(1) rotateZ(0deg); position: fixed; right: -20%;}
+    50% { transform: scaleY(1) rotateZ(0deg); position: fixed; right: -19%; }
+    70% { transform: scaleY(1) rotateZ(-20deg); position: fixed; right: -18%; }
+    95% { transform: scaleY(1) rotateZ(0deg);; position: fixed; right: -17%; }
+    100% { transform: scaleY(1) rotateZ(-30deg); position: fixed; right: -17%; }
+}
+@keyframes arm-from-side {
+    0% { opacity: 0; } 
+    75% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes wink-left {
+    0% { opacity: 0; } 
+    70% { opacity: 1; }
+    100% { opacity: 1 !important; }
+}
+@keyframes wink-right {
+    0% { opacity: 1; } 
+    70% { opacity: 0; }
+    100% { opacity: 0 !important; }
+}
+
+body.from-side #glasses {
+    opacity: 1;
+}
+body.from-side #arm,
+body.from-side #arm-cache {
+    animation: arm-from-side 8s 2s forwards;
+}
+body.from-side #Charly {
+    animation: from-side 8s 2s forwards;
+}
+body.from-side #eye_closed_left {
+    animation: wink-left 8s 2s forwards;
+}
+body.from-side #eye_closed_right {
+    animation: wink-right 8s 2s forwards;
 }
