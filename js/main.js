@@ -24,14 +24,33 @@ const head = document.getElementById('head');
 // const eyeClosedLeft = document.getElementById('eye_closed_left');
 // const eyeClosedRight = document.getElementById('eye_closed_right');
 
+/**
+ * Single animation:
+ * shedule the 'blink' animation
+ * with classSheduler.
+ */
 const blink = () => {
     classSheduler(head, 'blink', 100);
 }
 
+/**
+ * List of animations to shedule
+ * with classSheduler
+ */
 const animations = [ blink ];
 
+
+/**
+ * List of pause times (ms)
+ */
 const pauseTimes = [ 100, 100, 3000, 5000, 500 ];
 
+/**
+ * Shedule animation listed in {animations}
+ * with pauses between, randomly picked
+ * in {pauseTimes}.
+ * Callback itself.
+ */
 const animationSheduler = () => {
     let pauseTime = pauseTimes.sample();
 

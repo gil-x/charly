@@ -60,11 +60,11 @@ body {
 
 /* 
     ======
-    Charly
+    CHARLY
     ======
 */
 
-
+/* INITIAL */
 #Charly {
     width: 20vw;
     height: auto;
@@ -73,9 +73,6 @@ body {
     transform-box: fill-box;
     transform-origin: bottom;
 }
-
-
-
 
 #eye_left, #eye_right {
     opacity: 1;
@@ -92,14 +89,12 @@ body {
     66.66% { transform: scaleY(1.02) rotateY(1deg); }
     100% { transform: scaleY(1) rotateY(0deg);}
 }
+
 #body {
-    /* transform: rotateZ(5deg); */
     transform-box: fill-box;
     transform-origin: bottom;
     animation: breathe 12s infinite;
 }
-
-
 
 /* HEAD */
 @keyframes head-move {
@@ -107,8 +102,8 @@ body {
     60% { transform: rotateZ(3deg); }
     100% { transform: rotateZ(0deg); }
 }
+
 #head {
-    /* transform: rotateZ(5deg); */
     transform-box: fill-box;
     transform-origin: bottom;
     animation: head-move 5s infinite;
@@ -135,46 +130,19 @@ body {
     animation: ear-move-r 5s infinite;
 }
 
-/* @keyframes blink-on {
-    0% { display: none; }
-    25% { display: block; }
-    75% { display: none; }
-    100% { display: block; }
-}
 
-@keyframes blink-off {
-    0% { display: none; }
-    25% { display: block; }
-    75% { display: none; }
-    100% { display: none; }
-} */
-
-
+/* BLINK */
 #head.blink #eye_left,
 #head.blink #eye_right {
     opacity: 0;
 }
-
 #head.blink #eye_closed_left,
 #head.blink #eye_closed_right {
     opacity: 1;
 }
 
-@keyframes teeth-shine {
-    0% { opacity: 0; transform: scale(0) rotateZ(0deg); }
-    45% { opacity: 1; transform: scale(3) rotateZ(720deg); }
-    55% { opacity: 1; transform: scale(3) rotateZ(720deg); }
-    100% { opacity: 0; transform: scale(10) rotateZ(0deg); }
-    /* 0% { opacity: 0; transform: translateX(0); }
-    100% { opacity: 1; transform: translateX(300px); } */
-}
 
-#shine {
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-    /* animation: teeth-shine 2s infinite; */
-}
+
 
 
 /* 
@@ -182,12 +150,9 @@ body {
     Change Jacket color according to body class
     ===========================================
 */
-
-#hat,
-#arm,
-#arm-cache,
 #glasses,
-#headphones {
+#hat, #headphones,
+#arm, #arm-cache {
     opacity: 0;
 }
 
@@ -227,34 +192,65 @@ body.working #jacket-color {
 }
 @keyframes arm-from-side {
     0% { opacity: 0; } 
+    75% { opacity: 1 ;}
+    100% { opacity: 1 ;}
+}
+@keyframes arm-cache-from-side {
+    0% { opacity: 0; } 
     75% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 @keyframes wink-left {
     0% { opacity: 0; } 
-    70% { opacity: 1; }
+    94% { opacity: 0; }
+    95% { opacity: 1 !important; }
     100% { opacity: 1 !important; }
 }
 @keyframes wink-right {
     0% { opacity: 1; } 
-    70% { opacity: 0; }
+    94% { opacity: 1; }
+    95% { opacity: 0 !important; }
     100% { opacity: 0 !important; }
 }
 
 body.from-side #glasses {
     opacity: 1;
 }
-body.from-side #arm,
-body.from-side #arm-cache {
-    animation: arm-from-side 8s 2s forwards;
+body.from-side #arm {
+    animation: arm-from-side 0.1s 9s forwards;
+    /* transform-box: fill-box;
+    transform-origin: bottom; */
 }
+body.from-side #arm-cache {
+    animation: arm-cache-from-side 0.1s 9s forwards;
+}
+
 body.from-side #Charly {
     animation: from-side 8s 2s forwards;
 }
 body.from-side #eye_closed_left {
-    animation: wink-left 8s 2s forwards;
+    animation: wink-left 1s 11s forwards;
 }
 body.from-side #eye_closed_right {
-    animation: wink-right 8s 2s forwards;
+    animation: wink-right 1s 11s forwards;
+}
+
+/* TEETH SHINE */
+@keyframes teeth-shine {
+    0% { opacity: 0; transform: scale(0); }
+    75% { opacity: 1; transform: scale(3); }
+    90% { opacity: 1; transform: scale(7); }
+    100% { opacity: 0; transform: scale(0); }
+    /* 0% { opacity: 0; transform: scale(0) rotateZ(0deg); }
+    45% { opacity: 1; transform: scale(3) rotateZ(720deg); }
+    55% { opacity: 1; transform: scale(3) rotateZ(720deg); }
+    100% { opacity: 0; transform: scale(10) rotateZ(0deg); } */
+
+}
+#shine {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: teeth-shine 0.5s 12s both;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
