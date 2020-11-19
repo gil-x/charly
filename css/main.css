@@ -65,7 +65,7 @@ body {
 */
 
 /* INITIAL */
-#Charly {
+#charly svg {
     width: 20vw;
     height: auto;
     margin: 4em auto;
@@ -152,7 +152,7 @@ body {
 */
 #glasses,
 #hat, #headphones,
-#arm, #arm-cache {
+#arm2, #shine {
     opacity: 0;
 }
 
@@ -163,7 +163,9 @@ body.christmas #glasses {
 }
 body.christmas #glasses-color,
 body.christmas #jacket-color,
-body.christmas #jacket-side-color {
+body.christmas #jacket-side-color,
+body.christmas #arm-color,
+body.christmas #arm-color2 {
     fill: #d00000;
 }
 
@@ -173,7 +175,9 @@ body.working #headphones {
     opacity: 1;
 }
 body.working #glasses-color,
-body.working #jacket-color {
+body.working #jacket-color,
+body.working #arm-color,
+body.working #arm-color2 {
     /* fill: #385F71; */
     fill: #019390;
 }
@@ -225,7 +229,7 @@ body.from-side #arm-cache {
     animation: arm-cache-from-side 0.1s 9s forwards;
 }
 
-body.from-side #Charly {
+body.from-side #charly svg {
     animation: from-side 8s 2s forwards;
 }
 body.from-side #eye_closed_left {
@@ -237,20 +241,46 @@ body.from-side #eye_closed_right {
 
 /* TEETH SHINE */
 @keyframes teeth-shine {
-    0% { opacity: 0; transform: scale(0); }
+    /* 0% { opacity: 0; transform: scale(0); }
     75% { opacity: 1; transform: scale(3); }
     90% { opacity: 1; transform: scale(7); }
-    100% { opacity: 0; transform: scale(0); }
+    100% { opacity: 0; transform: scale(0); } */
     /* 0% { opacity: 0; transform: scale(0) rotateZ(0deg); }
     45% { opacity: 1; transform: scale(3) rotateZ(720deg); }
     55% { opacity: 1; transform: scale(3) rotateZ(720deg); }
     100% { opacity: 0; transform: scale(10) rotateZ(0deg); } */
 
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(3); }
+    100% { opacity: 0; transform: scale(0); }
+
 }
-#shine {
+body.from-side #shine {
     opacity: 0;
     transform-box: fill-box;
     transform-origin: center;
-    animation: teeth-shine 0.5s 12s both;
+    animation: teeth-shine 0.5s 11s forwards;
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes arm-disappears {
+    0% { opacity: 1; }
+    59% { opacity: 1; }
+    60% { opacity: 0; }
+    100% { opacity: 0; }
+}
+body.from-side #arm {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: arm-disappears 0.5s 9s forwards;
+}
+@keyframes arm-appears {
+    0% { opacity: 0; }
+    60% { opacity: 1; }
+    100% { opacity: 1; }
+}
+body.from-side #arm2 {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: arm-appears 0.5s 9s forwards;
 }
