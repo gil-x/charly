@@ -84,15 +84,18 @@ window.addEventListener("DOMContentLoaded", (e) => {
         if (event.target.id == 'control-christmas') {
             document.body.classList.remove('working');
             document.body.classList.add('christmas');
-            console.log('Christmas!');
+            console.log('Christmas outfits');
         } else if (event.target.id == 'control-working') {
             document.body.classList.remove('christmas');
             document.body.classList.add('working');
-            console.log('Working!');
+            console.log('Working outfits');
         } else if (event.target.id == 'control-fromside') {
             // document.body.classList.remove('christmas', 'working');
             document.body.classList.add('from-side');
             console.log('From side!');
+        } else if (event.target.id == 'control-orange') {
+            document.body.classList.remove('christmas', 'working', 'from-side');
+            console.log('Orange outfits');
         }
     });
     
