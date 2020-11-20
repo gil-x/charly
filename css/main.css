@@ -169,7 +169,7 @@ body {
     Change Jacket color according to body class
     ===========================================
 */
-#glasses,
+
 #hat, #headphones,
 #arm2, #shine {
     opacity: 0;
@@ -303,4 +303,84 @@ body.from-side #arm2 {
     transform-box: fill-box;
     transform-origin: bottom;
     animation: arm-appears 0.5s 9s forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes bubble-pop {
+    0% { transform: scale(0); }
+    50% { transform: scale(0); }
+    75% { transform: scale(1); filter: none; }
+    100% { transform: scale(1); filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.25)); }
+}
+@keyframes text-pop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(0) rotateZ(0deg); opacity: 1; }
+    100% { transform: scale(1) rotateZ(-3deg); opacity: 1; }
+}
+
+/* anim Charly */
+/* #charly {
+    position: fixed;
+    right:-400px;
+    width: auto;
+    height: 250px;
+    background-color: white;  
+    z-index: 100000;
+    opacity: 0;
+  } */
+
+.charly-bubble {
+    display: grid;
+    place-items: center;
+    /* background: url("../bubble-bg.svg") ; */
+    background-size: contain;
+    /* bg dimensions: 500x300 */
+    width: 400px;
+    height: 240px;
+    text-align: center;
+    /* border: 1px dashed black; */
+    position: fixed;
+    right: 15%;
+    top: 7vh;
+    /* transform: scale(0); */
+}
+
+.charly-bubble svg {
+    position: absolute;
+    width: 400px;
+    height: 240px;
+    transform-box: fill-box;
+    transform-origin: right bottom;
+    transform: scale(0);
+}
+.charly-bubble p {
+    position: absolute;
+    /* padding: 3em; */
+    margin: 3em;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+}
+
+body.from-side .charly-bubble svg {
+    animation: bubble-pop 0.75s 10s forwards;
+}
+
+body.from-side .charly-bubble p {
+    animation: text-pop 1s 10s forwards;
 }

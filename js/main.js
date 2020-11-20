@@ -82,15 +82,15 @@ window.addEventListener("DOMContentLoaded", (e) => {
     
     document.addEventListener("click", function(event) {
         if (event.target.id == 'control-christmas') {
-            document.body.classList.remove('working', 'from-side');
+            document.body.classList.remove('working');
             document.body.classList.add('christmas');
             console.log('Christmas!');
         } else if (event.target.id == 'control-working') {
-            document.body.classList.remove('christmas', 'from-side');
+            document.body.classList.remove('christmas');
             document.body.classList.add('working');
             console.log('Working!');
         } else if (event.target.id == 'control-fromside') {
-            document.body.classList.remove('christmas', 'working');
+            // document.body.classList.remove('christmas', 'working');
             document.body.classList.add('from-side');
             console.log('From side!');
         }
