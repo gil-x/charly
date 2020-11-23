@@ -275,11 +275,10 @@ body.from-side #charly {
     animation: from-side 8s 2s forwards;
 }
 body.visio #charly {
-    opacity: 0.2;
+    opacity: 0.25;
 }
 body.from-side-visio #charly {
     animation: from-side-visio 8s 2s forwards;
-    border: 1px dashed red;
 }
 
 body.from-side #eye_closed_left,
