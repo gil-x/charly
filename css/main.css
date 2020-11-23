@@ -274,7 +274,8 @@ body.from-side-visio #arm-cache {
 body.from-side #charly {
     animation: from-side 8s 2s forwards;
 }
-body.visio #charly {
+body.visio #charly,
+body.visio #desk {
     opacity: 0.25;
 }
 body.from-side-visio #charly {
