@@ -56,6 +56,10 @@
     /* background: #385F71; */
     background: #333;
 }
+#control-visio,
+#control-run {
+    background: purple;
+}
 #controls #control-orange {
     color: #111;
     background: #f3b745;
@@ -219,6 +223,17 @@ body.working #arm-color2 {
     95% { transform: scaleY(1) rotateZ(0deg);; position: fixed; right: -17%; width: 20vw; top: 20vh;}
     100% { transform: scaleY(1) rotateZ(-30deg); position: fixed; right: -17%; width: 20vw; top: 20vh;}
 }
+/* From side VISIO*/
+@keyframes from-side-visio {
+    0% { opacity: 1; position: fixed; right: -50%; z-index: 99999; }
+    48.999% { opacity: 1; position: fixed; right: -50%; z-index: 99999; }
+    49% { transform: scaleY(1) rotateZ(0deg); position: fixed; right: -20%; width: 20vw; top: 20vh; }
+    50% { transform: scaleY(1) rotateZ(0deg); position: fixed; right: -19%; width: 20vw; top: 20vh;}
+    70% { transform: scaleY(1) rotateZ(-20deg); position: fixed; right: -18%; width: 20vw; top: 20vh;}
+    75% { transform: scaleY(1) rotateZ(0deg); position: fixed; right: -18%; width: 20vw; top: 20vh;}
+    95% { transform: scaleY(1) rotateZ(0deg);; position: fixed; right: -17%; width: 20vw; top: 20vh;}
+    100% { transform: scaleY(1) rotateZ(-30deg); position: fixed; right: -17%; width: 20vw; top: 20vh;}
+}
 @keyframes arm-from-side {
     0% { opacity: 0; } 
     75% { opacity: 1 ;}
@@ -245,22 +260,34 @@ body.working #arm-color2 {
 body.from-side #glasses {
     opacity: 1;
 }
-body.from-side #arm {
+body.from-side #arm,
+body.from-side-visio #arm {
     animation: arm-from-side 0.1s 9s forwards;
     /* transform-box: fill-box;
     transform-origin: bottom; */
 }
-body.from-side #arm-cache {
+body.from-side #arm-cache,
+body.from-side-visio #arm-cache {
     animation: arm-cache-from-side 0.1s 9s forwards;
 }
 
 body.from-side #charly {
     animation: from-side 8s 2s forwards;
 }
-body.from-side #eye_closed_left {
+body.visio #charly {
+    opacity: 0.2;
+}
+body.from-side-visio #charly {
+    animation: from-side-visio 8s 2s forwards;
+    border: 1px dashed red;
+}
+
+body.from-side #eye_closed_left,
+body.from-side-visio #eye_closed_left {
     animation: wink-left 1s 11s forwards;
 }
-body.from-side #eye_closed_right {
+body.from-side #eye_closed_right,
+body.from-side-visio #eye_closed_right {
     animation: wink-right 1s 11s forwards;
 }
 
@@ -280,7 +307,8 @@ body.from-side #eye_closed_right {
     100% { opacity: 0; transform: scale(0); }
 
 }
-body.from-side #shine {
+body.from-side #shine,
+body.from-side-visio #shine {
     opacity: 0;
     transform-box: fill-box;
     transform-origin: center;
@@ -294,7 +322,8 @@ body.from-side #shine {
     60% { opacity: 0; }
     100% { opacity: 0; }
 }
-body.from-side #arm {
+body.from-side #arm,
+body.from-side-visio #arm {
     transform-box: fill-box;
     transform-origin: bottom;
     animation: arm-disappears 0.5s 9s forwards;
@@ -304,7 +333,8 @@ body.from-side #arm {
     60% { opacity: 1; }
     100% { opacity: 1; }
 }
-body.from-side #arm2 {
+body.from-side #arm2,
+body.from-side-visio #arm2 {
     transform-box: fill-box;
     transform-origin: bottom;
     animation: arm-appears 0.5s 9s forwards;

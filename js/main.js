@@ -19,10 +19,10 @@ const classSheduler = (element, className, lifetime) => {
 }
 
 const head = document.getElementById('head');
-// const eyeLeft = document.getElementById('eye_left');
-// const eyeRight = document.getElementById('eye_right');
-// const eyeClosedLeft = document.getElementById('eye_closed_left');
-// const eyeClosedRight = document.getElementById('eye_closed_right');
+/* VISIO */
+const headVisio = document.getElementById('head-visio');
+/* VISIO */
+
 
 /**
  * Single animation:
@@ -31,6 +31,7 @@ const head = document.getElementById('head');
  */
 const blink = () => {
     classSheduler(head, 'blink', 100);
+    classSheduler(headVisio, 'blink', 100);
 }
 
 /**
@@ -68,6 +69,35 @@ const animationSheduler = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
     =============================================
         GENERAL: STUFF TO DO WHEN DOM'S READY
@@ -93,12 +123,18 @@ window.addEventListener("DOMContentLoaded", (e) => {
             // document.body.classList.remove('christmas', 'working');
             document.body.classList.add('from-side');
             console.log('From side!');
+        } else if (event.target.id == 'control-visio') {
+            document.body.classList.remove('from-side');
+            document.body.classList.add('visio');
+        } else if (event.target.id == 'control-run') {
+            // document.body.classList.remove('from-side');
+            // document.body.classList.add('from-side');
+            document.body.classList.add('from-side-visio');
         } else if (event.target.id == 'control-orange') {
             document.body.classList.remove('christmas', 'working', 'from-side');
             console.log('Orange outfits');
         }
-    });
     
+    });
+
 });
-
-

@@ -13,12 +13,13 @@
         <div id="controls">
             <div id="control-christmas">Christmas</div>
             <div id="control-working">Working</div>
-            <div id="control-fromside">Anim 'from side'</div>
+            <div id="control-fromside">Anim 'from-side'</div>
+            <div id="control-visio">Add '.visio'</div>
+            <div id="control-run">Add 'from-side-visio'</div>
             <div id="control-orange">Orange + Reset</div>
         </div>
 
     <?php include("charly.php"); ?>
-    
 
     <div class="charly-bubble">
         <!-- <img src="bubble-bg.svg" alt=""> -->
